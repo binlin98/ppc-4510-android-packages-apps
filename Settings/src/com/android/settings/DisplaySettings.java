@@ -39,6 +39,8 @@ import android.app.UiModeManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.hardware.Sensor;
@@ -60,6 +62,11 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener, Indexable {
     private static final String TAG = "DisplaySettings";
@@ -277,8 +284,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         best = i;
                     }
                 }
-                summary = preference.getContext().getString(R.string.screen_timeout_summary,
-                        entries[best]);
+                if(currentTimeout>1800000){
+                     summary = preference.getContext().getString(R.string.screen_never_timeout_summary,
+                                                       entries[best]);
+                 }else{
+                     summary = preference.getContext().getString(R.string.screen_timeout_summary,
+                                                       entries[best]);
+                 }
             }
         }
         preference.setSummary(summary);
