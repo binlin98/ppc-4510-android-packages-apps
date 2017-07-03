@@ -920,7 +920,6 @@ public abstract class AlarmClockFragment extends DeskClockFragment implements
             if (mRepeatChecked.contains(alarm.id) || itemHolder.alarm.daysOfWeek.isRepeating()) {
                 itemHolder.repeat.setChecked(true);
                 itemHolder.repeatDays.setVisibility(View.VISIBLE);
-                itemHolder.repeatDays.destroyDrawingCache();
             } else {
                 itemHolder.repeat.setChecked(false);
                 itemHolder.repeatDays.setVisibility(View.GONE);

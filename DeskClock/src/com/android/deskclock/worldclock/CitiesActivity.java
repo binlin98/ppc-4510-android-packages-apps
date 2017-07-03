@@ -25,7 +25,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
+import android.widget.SearchView;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.TypedValue;
@@ -560,6 +560,7 @@ public class CitiesActivity extends BaseActivity implements OnCheckedChangeListe
 
         MenuItem searchMenu = menu.findItem(R.id.menu_item_search);
         mSearchView = (SearchView) MenuItemCompat.getActionView(searchMenu);
+
         mSearchView.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         mSearchView.setOnSearchClickListener(new OnClickListener() {
 
