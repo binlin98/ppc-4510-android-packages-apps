@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, ComAssistantActivity!</string>
+    <string name="app_name">ComAssistant</string>
+    <string name="clear">clear</string>
+    <string name="txt">Txt</string>
+    <string name="hex">Hex</string>
+    <string name="line">0</string>
+    <string name="autoClear">AutoClear</string>
+    <string name="tb">ToggleButton</string>
+    <string name="times">500</string>
+    <string name="ms">ms</string>
+    <string name="send">Send</string>
+    <string name="auto">Auto</string>
+    
+</resources>
