@@ -7076,7 +7076,7 @@
     <!-- Description of feature to change color setting for the display [CHAR LIMIT=NONE] -->
     <string name="picture_color_mode_desc">Use sRGB</string>
        <!--Ethernet Settings -->
-     <string name="ethernet_settings_title" >"Ehernet"</string>
+     <string name="ethernet_settings_title" >"Ethernet"</string>
      <string name="ethernet_netmask_hint" translatable="false"> 255.255.255.0</string>
      <string name="ethernet_info_getting">"getting IP info..."</string>
      <string name="ethernet_settings">Ethernet</string>
