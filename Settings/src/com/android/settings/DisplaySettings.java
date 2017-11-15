@@ -124,6 +124,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
 
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
+	mScreenTimeoutPreference.setEnabled(false);
         final long currentTimeout = Settings.System.getLong(resolver, SCREEN_OFF_TIMEOUT,
                 FALLBACK_SCREEN_TIMEOUT_VALUE);
         mScreenTimeoutPreference.setValue(String.valueOf(currentTimeout));
@@ -268,7 +269,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
         ListPreference preference = mScreenTimeoutPreference;
         String summary;
-        if (currentTimeout < 0) {
+        if (currentTimeout < -1) {
             // Unsupported value
             summary = "";
         } else {
@@ -280,17 +281,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 int best = 0;
                 for (int i = 0; i < values.length; i++) {
                     long timeout = Long.parseLong(values[i].toString());
-                    if (currentTimeout >= timeout) {
+                    if (currentTimeout == timeout) {
                         best = i;
                     }
                 }
-                if(currentTimeout>1800000){
-                     summary = preference.getContext().getString(R.string.screen_never_timeout_summary,
-                                                       entries[best]);
-                 }else{
-                     summary = preference.getContext().getString(R.string.screen_timeout_summary,
-                                                       entries[best]);
-                 }
+		summary = preference.getContext().getString(R.string.screen_timeout_summary,
+                        entries[best]);
+                if(currentTimeout < 0)summary = entries[best].toString();
             }
         }
         preference.setSummary(summary);
